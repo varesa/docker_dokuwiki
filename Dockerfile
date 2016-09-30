@@ -4,6 +4,8 @@
 # TO_BUILD:       docker build -t mprasil/dokuwiki .
 # TO_RUN:         docker run -d -p 80:80 --name my_wiki mprasil/dokuwiki
 
+# Upstream:
+# https://bitbucket.org/mprasil/docker_dokuwiki.git
 
 FROM ubuntu:14.04
 MAINTAINER Miroslav Prasil <miroslav@prasil.info>
@@ -18,7 +20,7 @@ ENV LAST_REFRESHED 6. September 2015
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
     apt-get -y upgrade && \
-    apt-get -y install wget lighttpd php5-cgi php5-gd && \
+    apt-get -y install wget lighttpd php5-cgi php5-gd php5-ldap && \
     apt-get clean autoclean && \
     apt-get autoremove && \
     rm -rf /var/lib/{apt,dpkg,cache,log}
